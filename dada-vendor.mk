@@ -5,26 +5,6 @@
 PRODUCT_SOONG_NAMESPACES += \
     vendor/xiaomi/dada
 
-# Fingerprint HAL modules
-PRODUCT_COPY_FILES += \
-    vendor/xiaomi/dada/proprietary/odm/lib64/hw/fingerprint.goodix_us.default.so:$(TARGET_COPY_OUT_ODM)/lib64/hw/fingerprint.goodix.so \
-    vendor/xiaomi/dada/proprietary/odm/lib64/hw/fingerprint.qcom_us.default.so:$(TARGET_COPY_OUT_ODM)/lib64/hw/fingerprint.qcom_us.so \
-    vendor/xiaomi/dada/proprietary/odm/lib64/libqc_hal.so:$(TARGET_COPY_OUT_ODM)/lib64/libqc_hal.so
-
-# Graphics allocator V1 (needed by camera HAL blobs)
-PRODUCT_COPY_FILES += \
-    vendor/xiaomi/dada/proprietary/vendor/lib64/android.hardware.graphics.allocator-V1-ndk.so:$(TARGET_COPY_OUT_VENDOR)/lib64/android.hardware.graphics.allocator-V1-ndk.so
-
-# Stock libc++ for vendor (needed by camera HAL blobs)
-PRODUCT_COPY_FILES += \
-    vendor/xiaomi/dada/proprietary/vendor/lib64/libc++.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libc++.so
-
-# Product display config (auto brightness)
-PRODUCT_COPY_FILES += \
-    vendor/xiaomi/dada/proprietary/product/etc/displayconfig/display_id_4630946682710401939.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/display_id_4630946682710401939.xml \
-    vendor/xiaomi/dada/proprietary/product/etc/displayconfig/display_id_4630947212918452371.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/display_id_4630947212918452371.xml
-
-# ACDB and audio configs
 PRODUCT_COPY_FILES += \
     vendor/xiaomi/dada/proprietary/odm/etc/acdbdata/Fluence/Fluence_acdb_cal.acdb:$(TARGET_COPY_OUT_ODM)/etc/acdbdata/Fluence/Fluence_acdb_cal.acdb \
     vendor/xiaomi/dada/proprietary/odm/etc/acdbdata/Fluence/Fluence_workspaceFileXml.qwsp:$(TARGET_COPY_OUT_ODM)/etc/acdbdata/Fluence/Fluence_workspaceFileXml.qwsp \
@@ -1835,15 +1815,18 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/dada/proprietary/odm/lib64/qsn3all.bin:$(TARGET_COPY_OUT_ODM)/lib64/qsn3all.bin \
     vendor/xiaomi/dada/proprietary/odm/vendor/etc/videoCodecCapability.json:$(TARGET_COPY_OUT_ODM)/vendor/etc/videoCodecCapability.json \
     vendor/xiaomi/dada/proprietary/odm/vendor/etc/videobox.json:$(TARGET_COPY_OUT_ODM)/vendor/etc/videobox.json \
+    vendor/xiaomi/dada/proprietary/product/etc/displayconfig/common_multi_factor_thermal_brightness_control.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/common_multi_factor_thermal_brightness_control.xml \
+    vendor/xiaomi/dada/proprietary/product/etc/displayconfig/display_id_4630946682710401939.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/display_id_4630946682710401939.xml \
+    vendor/xiaomi/dada/proprietary/product/etc/displayconfig/display_id_4630947212918452371.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/display_id_4630947212918452371.xml \
+    vendor/xiaomi/dada/proprietary/product/etc/displayconfig/multi_factor_thermal_brightness_control.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/multi_factor_thermal_brightness_control.xml \
+    vendor/xiaomi/dada/proprietary/product/etc/displayconfig/rhythmic_app_category_list_backup.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/rhythmic_app_category_list_backup.xml \
     vendor/xiaomi/dada/proprietary/vendor/etc/camera/cameraopt_perf.json:$(TARGET_COPY_OUT_VENDOR)/etc/camera/cameraopt_perf.json \
-    vendor/xiaomi/dada/proprietary/vendor/etc/camera/cameraopt_vendor.json:$(TARGET_COPY_OUT_VENDOR)/etc/camera/cameraopt_vendor.json
-
-# Stock gralloc prebuilts for camera HAL compatibility
-PRODUCT_PACKAGES += \
-    libgralloccore \
-    libgrallocutils \
-    libgralloc.qti \
-    vendor.qti.hardware.display.allocator-service
+    vendor/xiaomi/dada/proprietary/vendor/etc/camera/cameraopt_vendor.json:$(TARGET_COPY_OUT_VENDOR)/etc/camera/cameraopt_vendor.json \
+    vendor/xiaomi/dada/proprietary/vendor/etc/displayconfig/display_id_4630946916234099603.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630946916234099603.xml \
+    vendor/xiaomi/dada/proprietary/vendor/etc/displayconfig/display_id_4630947039571902850.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630947039571902850.xml \
+    vendor/xiaomi/dada/proprietary/vendor/etc/displayconfig/display_id_4630947039571902851.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630947039571902851.xml \
+    vendor/xiaomi/dada/proprietary/vendor/etc/displayconfig/display_id_4630947075271898515.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630947075271898515.xml \
+    vendor/xiaomi/dada/proprietary/vendor/etc/displayconfig/display_layout_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_layout_configuration.xml
 
 PRODUCT_PACKAGES += \
     libSNPESample \
@@ -1853,14 +1836,10 @@ PRODUCT_PACKAGES += \
     libmialgo \
     libopencl_loader \
     libopencv_core \
-    libopencv_core_se \
     libopencv_imgproc \
-    libopencv_imgproc_se \
+    libultrahdr \
     libVppAisQnnHtp \
     libVppFrcQnnHtp \
-    libapn_dsp_skel \
-    libhdr_skel \
-    libqsegnetengine_dsp_skel \
     libdpp_engine_skel \
     libdspCV_skel \
     libevadsp \
@@ -2217,9 +2196,6 @@ PRODUCT_PACKAGES += \
     libarcsoft_turbo_hdr_raw_portrait \
     libbitmlengine \
     libbitmlenginev2 \
-    libbitml_nsp_73na_skel \
-    libbitml_nsp_79na_skel \
-    libbitml_nsp_skel \
     libc++_shared \
     libcalculator \
     libcamera_scene \
@@ -2272,6 +2248,7 @@ PRODUCT_PACKAGES += \
     libellv \
     libfastmessage \
     libfuai_camera_alg \
+    libgf_hal \
     libhandgesture.arcsoft \
     libhdr10plus \
     libheichal \
@@ -2347,7 +2324,6 @@ PRODUCT_PACKAGES += \
     libmmcamera_mfnr_t4 \
     libmmcamera_pdpc \
     libmmfp \
-    libgf_hal \
     libmorpho_Depurple \
     libmpbase \
     libocr_api \
@@ -2385,6 +2361,12 @@ PRODUCT_PACKAGES += \
     libvideoml \
     libwa_widelens_undistort \
     libxmi_slow_motion_mein \
+    libapn_dsp_skel \
+    libbitml_nsp_73na_skel \
+    libbitml_nsp_79na_skel \
+    libbitml_nsp_skel \
+    libhdr_skel \
+    libqsegnetengine_dsp_skel \
     vendor.qti.hardware.camera.aon-service-impl \
     vendor.qti.hardware.camera.offlinecamera-service-impl \
     vendor.xiaomi.hardware.aidl.intentaware-V1-impl \
