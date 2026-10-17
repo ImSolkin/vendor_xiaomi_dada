@@ -1837,7 +1837,7 @@ PRODUCT_PACKAGES += \
     libopencl_loader \
     libopencv_core \
     libopencv_imgproc \
-    libultrahdr \
+    libultrahdr_dada \
     libVppAisQnnHtp \
     libVppFrcQnnHtp \
     libdpp_engine_skel \

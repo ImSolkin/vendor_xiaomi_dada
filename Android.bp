@@ -254,7 +254,7 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libultrahdr",
+    name: "libultrahdr_dada",
     owner: "xiaomi",
     strip: {
         none: true,
@@ -262,7 +262,7 @@ cc_prebuilt_library_shared {
     target: {
         android_arm64: {
             srcs: [
-                "proprietary/vendor/lib64/libultrahdr.so",
+                "proprietary/vendor/lib64/libultrahdr_dada.so",
             ],
             shared_libs: [
                 "libimage_io",
